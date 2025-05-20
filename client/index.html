@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Système de Gestion de Fichiers</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    />
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <!-- Login Page -->
+    <div id="loginPage" class="page">
+        <div class="login-container">
+            <h1>Système de Gestion de Fichiers</h1>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Nom d'utilisateur</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div id="loginError" class="error-message"></div>
+                <button type="submit">Se connecter</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Dashboard Page -->
+    <div id="dashboardPage" class="page hidden">
+        <nav class="navbar">
+            <div class="nav-brand">Système de Gestion de Fichiers</div>
+            <div class="nav-user">
+                <span id="usernameDisplay"></span>
+                <button id="logoutBtn">Déconnexion</button>
+            </div>
+        </nav>
+
+        <div class="dashboard-container">
+            <div class="dashboard-header">
+                <h1>Mes Fichiers</h1>
+                <div class="dashboard-actions">
+                    <input type="file" id="fileUpload" class="hidden">
+                    <button id="uploadBtn" class="btn primary">Téléverser</button>
+                    <button id="createZipBtn" class="btn secondary">Créer ZIP</button>
+                </div>
+            </div>
+
+            <div id="errorMessage" class="error-message"></div>
+
+            <div id="filesGrid" class="files-grid"></div>
+        </div>
+
+        <!-- Upload Progress Dialog -->
+        <div id="uploadDialog" class="dialog hidden">
+            <div class="dialog-content">
+                <h2>Ajout de fichier</h2>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div id="uploadProgress" class="progress"></div>
+                    </div>
+                    <span id="progressText">0%</span>
+                </div>
+                <button id="closeUploadDialog" class="btn">Fermer</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js" type="module"></script>
+    <script src="js/files.js" type="module"></script>
+    <script src="js/app.js" type="module"></script>
+  </body>
+</html> 

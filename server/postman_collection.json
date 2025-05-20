@@ -1,0 +1,184 @@
+{
+	"info": {
+		"_postman_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+		"name": "File Management System API",
+		"description": "Collection pour tester l'API de gestion de fichiers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"admin123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/login",
+							"host": ["{{base_url}}"],
+							"path": ["auth", "login"]
+						},
+						"description": "Authentification utilisateur"
+					}
+				}
+			]
+		},
+		{
+			"name": "Files",
+			"item": [
+				{
+					"name": "List Files",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/files",
+							"host": ["{{base_url}}"],
+							"path": ["files"]
+						},
+						"description": "Liste tous les fichiers de l'utilisateur"
+					}
+				},
+				{
+					"name": "Upload File",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/files/upload",
+							"host": ["{{base_url}}"],
+							"path": ["files", "upload"]
+						},
+						"description": "Télécharger un fichier"
+					}
+				},
+				{
+					"name": "Download File",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/files/:filename",
+							"host": ["{{base_url}}"],
+							"path": ["files", ":filename"],
+							"variable": [
+								{
+									"key": "filename",
+									"value": "example.txt",
+									"description": "Nom du fichier à télécharger"
+								}
+							]
+						},
+						"description": "Télécharger un fichier spécifique"
+					}
+				},
+				{
+					"name": "Delete File",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/files/:filename",
+							"host": ["{{base_url}}"],
+							"path": ["files", ":filename"],
+							"variable": [
+								{
+									"key": "filename",
+									"value": "example.txt",
+									"description": "Nom du fichier à supprimer"
+								}
+							]
+						},
+						"description": "Supprimer un fichier"
+					}
+				},
+				{
+					"name": "Create ZIP Archive",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/files/zip",
+							"host": ["{{base_url}}"],
+							"path": ["files", "zip"]
+						},
+						"description": "Créer une archive ZIP des fichiers"
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [""]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [""]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "your_token_here",
+			"type": "string"
+		}
+	]
+} 

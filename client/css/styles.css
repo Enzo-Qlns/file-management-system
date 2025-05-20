@@ -1,0 +1,215 @@
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Login page */
+.login-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #1565c0;
+}
+
+/* Dashboard */
+.navbar {
+    background-color: #1976d2;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.dashboard-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.dashboard-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border: none;
+}
+
+.btn.primary {
+    background-color: #1976d2;
+    color: white;
+}
+
+.btn.secondary {
+    background-color: #dc004e;
+    color: white;
+}
+
+/* Files grid */
+.files-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.file-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.file-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.file-info {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.file-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+/* Dialog */
+.dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialog-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    min-width: 300px;
+}
+
+.progress-container {
+    margin: 1rem 0;
+}
+
+.progress-bar {
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    height: 8px;
+    overflow: hidden;
+}
+
+.progress {
+    background-color: #1976d2;
+    height: 100%;
+    width: 0;
+    transition: width 0.3s ease;
+}
+
+/* Error message */
+.error-message {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    display: none; /* Caché par défaut */
+}
+
+.error-message:not(:empty) {
+    display: block; /* Affiché uniquement s'il y a du contenu */
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+} 
