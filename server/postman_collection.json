@@ -21,12 +21,12 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"admin123\"\n}"
+							"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"admin\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/auth/login",
+							"raw": "{{base_url}}/api/auth/login",
 							"host": ["{{base_url}}"],
-							"path": ["auth", "login"]
+							"path": ["api", "auth", "login"]
 						},
 						"description": "Authentification utilisateur"
 					}
@@ -47,9 +47,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/files",
+							"raw": "{{base_url}}/api/files",
 							"host": ["{{base_url}}"],
-							"path": ["files"]
+							"path": ["api", "files"]
 						},
 						"description": "Liste tous les fichiers de l'utilisateur"
 					}
@@ -75,9 +75,9 @@
 							]
 						},
 						"url": {
-							"raw": "{{base_url}}/files/upload",
+							"raw": "{{base_url}}/api/files/upload",
 							"host": ["{{base_url}}"],
-							"path": ["files", "upload"]
+							"path": ["api", "files", "upload"]
 						},
 						"description": "Télécharger un fichier"
 					}
@@ -93,14 +93,14 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/files/:filename",
+							"raw": "{{base_url}}/api/files/:fileId",
 							"host": ["{{base_url}}"],
-							"path": ["files", ":filename"],
+							"path": ["api", "files", ":fileId"],
 							"variable": [
 								{
-									"key": "filename",
-									"value": "example.txt",
-									"description": "Nom du fichier à télécharger"
+									"key": "fileId",
+									"value": "example-file-id",
+									"description": "ID du fichier à télécharger"
 								}
 							]
 						},
@@ -118,14 +118,14 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/files/:filename",
+							"raw": "{{base_url}}/api/files?fileId=:fileId",
 							"host": ["{{base_url}}"],
-							"path": ["files", ":filename"],
-							"variable": [
+							"path": ["api", "files"],
+							"query": [
 								{
-									"key": "filename",
-									"value": "example.txt",
-									"description": "Nom du fichier à supprimer"
+									"key": "fileId",
+									"value": ":fileId",
+									"description": "ID du fichier à supprimer"
 								}
 							]
 						},
@@ -143,9 +143,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/files/zip",
+							"raw": "{{base_url}}/api/files/zip",
 							"host": ["{{base_url}}"],
-							"path": ["files", "zip"]
+							"path": ["api", "files", "zip"]
 						},
 						"description": "Créer une archive ZIP des fichiers"
 					}
